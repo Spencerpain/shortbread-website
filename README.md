@@ -2,4 +2,4 @@
 
 Website for Coach House Shortbread Co. — Canada's Finest Since 1986.
 
-**[View Website](https://spencerpain.github.io/shortbread-website/)**
+**[Download index.html](https://raw.githubusercontent.com/Spencerpain/shortbread-website/main/index.html)** — download and open in your browser to view the site.
