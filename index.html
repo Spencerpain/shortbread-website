@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach House Shortbread Co. — Canada's Finest Since 1986</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,300;1,14..32,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg2: #f5f5f7;
+      --bg3: #e8e8ed;
+      --bg4: #d1d1d6;
+      --card: #ffffff;
+      --border: rgba(0,0,0,0.09);
+      --text: #1d1d1f;
+      --text2: #6e6e73;
+      --text3: #aeaeb2;
+      --gold: #8a5e1a;
+      --gold2: #a87828;
+      --gold-dim: rgba(138,94,26,0.09);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --nav-h: 52px;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===================== NAV ===================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s var(--ease);
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-actions { display: flex; gap: 16px; align-items: center; }
+
+    .nav-btn {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 980px;
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-btn:hover { background: var(--gold2); transform: scale(1.02); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s var(--ease);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      padding: 24px;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 999;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-h) + 40px) 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(138,94,26,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(138,94,26,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 80% 90%, rgba(138,94,26,0.03) 0%, transparent 50%);
+      animation: heroGlow 8s ease-in-out infinite alternate;
+    }
+    @keyframes heroGlow {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(200,169,110,0.25);
+      padding: 6px 16px;
+      border-radius: 980px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s var(--ease) both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 120px);
+      font-weight: 700;
+      letter-spacing: -3px;
+      line-height: 0.92;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.1s var(--ease) both;
+    }
+    .hero h1 .line1 { display: block; color: var(--text); }
+    .hero h1 .line2 {
+      display: block;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 50%, #6a3e08 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 22px);
+      font-weight: 300;
+      color: var(--text2);
+      max-width: 520px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.2s var(--ease) both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      animation: fadeUp 0.8s 0.3s var(--ease) both;
+    }
+
+    .btn-primary {
+      font-size: 17px;
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 980px;
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(200,169,110,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--gold2);
+      transform: scale(1.02);
+      box-shadow: 0 8px 30px rgba(200,169,110,0.3);
+    }
+
+    .btn-secondary {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .btn-secondary::after { content: '→'; }
+    .btn-secondary:hover { gap: 10px; }
+
+    .hero-cookies {
+      margin-top: 80px;
+      position: relative;
+      height: 200px;
+      width: 100%;
+      max-width: 600px;
+      animation: fadeUp 0.8s 0.5s var(--ease) both;
+    }
+
+    .cookie {
+      position: absolute;
+      border-radius: 50%;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    /* ===================== MARQUEE ===================== */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      background: var(--bg2);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 48px;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text3);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .marquee-item::after {
+      content: '✦';
+      color: var(--gold);
+      font-size: 10px;
+    }
+
+    /* ===================== STATS ===================== */
+    .stats {
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat {
+      background: var(--bg);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text3);
+      letter-spacing: 0.5px;
+    }
+
+    /* ===================== SECTIONS ===================== */
+    section { position: relative; }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    h2.section-title {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      color: var(--text);
+    }
+
+    .section-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.6;
+      max-width: 580px;
+    }
+
+    /* ===================== STORY ===================== */
+    .story {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .story-visual {
+      position: relative;
+      height: 500px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: linear-gradient(135deg, #f7f0e4 0%, #ede0c8 50%, #f7f0e4 100%);
+    }
+
+    .story-visual-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .big-cookie {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 35% 35%, #f0d080 0%, #c8960a 40%, #8b5e00 80%, #5c3a00 100%);
+      box-shadow:
+        inset -20px -20px 40px rgba(0,0,0,0.4),
+        inset 10px 10px 30px rgba(255,220,100,0.2),
+        0 30px 80px rgba(0,0,0,0.8),
+        0 0 0 2px rgba(200,150,10,0.3);
+      position: relative;
+    }
+
+    .big-cookie::after {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255,220,100,0.15);
+    }
+
+    .cookie-dots {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .cookie-dot {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(100,60,0,0.5);
+    }
+
+    .story-year-badge {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .story-year-badge .yr { font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1; }
+    .story-year-badge .yl { font-size: 11px; color: var(--text3); letter-spacing: 1px; margin-top: 4px; }
+
+    .story-content { padding: 20px 0; }
+    .story-content h2 { margin-bottom: 24px; }
+    .story-content p {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .story-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .story-fact {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+    .story-fact-icon { font-size: 24px; margin-bottom: 8px; }
+    .story-fact-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .story-fact-desc { font-size: 13px; color: var(--text3); line-height: 1.4; }
+
+    /* ===================== PRODUCTS ===================== */
+    .products-section {
+      padding: 120px 0;
+      background: var(--bg2);
+    }
+
+    .products-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .products-header h2 { margin-bottom: 16px; }
+    .products-header p { margin: 0 auto 40px; }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 980px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+    }
+    .filter-tab:hover { border-color: var(--gold); color: var(--gold); }
+    .filter-tab.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+      border-color: rgba(138,94,26,0.25);
+    }
+    .product-card.hidden { display: none; }
+
+    .product-visual {
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 980px;
+    }
+    .badge-sweet { background: rgba(138,94,26,0.1); color: var(--gold); border: 1px solid rgba(138,94,26,0.2); }
+    .badge-savoury { background: rgba(40,130,60,0.1); color: #287840; border: 1px solid rgba(40,130,60,0.2); }
+
+    .product-cookie {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+      position: relative;
+      transition: transform 0.3s var(--ease);
+    }
+    .product-card:hover .product-cookie { transform: scale(1.08) rotate(5deg); }
+
+    .product-info { padding: 24px; }
+    .product-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--text3);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .product-price span {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text3);
+    }
+    .product-add {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 980px;
+      background: var(--bg4);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .product-add:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    /* ===================== PRESS / TESTIMONIALS ===================== */
+    .press-section {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+
+    .press-header { text-align: center; margin-bottom: 64px; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(138,94,26,0.2);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      font-size: 120px;
+      font-weight: 700;
+      color: rgba(138,94,26,0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .star { color: var(--gold); font-size: 16px; }
+
+    .testimonial-quote {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+      border: 1px solid var(--border);
+    }
+    .testimonial-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .testimonial-pub { font-size: 12px; color: var(--text3); }
+
+    /* ===================== IDEAS / RECIPES ===================== */
+    .ideas-section {
+      padding: 120px 0;
+      background: var(--bg2);
+    }
+
+    .ideas-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 64px;
+    }
+
+    .idea-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .idea-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+    .idea-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+
+    .idea-visual {
+      height: 220px;
+      background: linear-gradient(135deg, #1a1200, #2d1f00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .idea-card.featured .idea-visual { height: auto; }
+    .idea-visual-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+    }
+    .idea-emoji { position: relative; z-index: 1; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5)); }
+
+    .idea-body { padding: 32px; }
+    .idea-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .idea-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .idea-desc {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .idea-ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ingredient-tag {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 980px;
+      background: var(--bg4);
+      border: 1px solid var(--border);
+      color: var(--text3);
+    }
+
+    /* Quick pairings */
+    .pairings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .pairing-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .pairing-card:hover { border-color: rgba(200,169,110,0.3); }
+    .pairing-icon { font-size: 28px; flex-shrink: 0; }
+    .pairing-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .pairing-with { font-size: 13px; color: var(--text3); }
+
+    /* ===================== IN PERSON ===================== */
+    .inperson-section {
+      padding: 120px 0;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .inperson-card {
+      max-width: 700px;
+      margin: 60px auto 0;
+      background: linear-gradient(135deg, rgba(138,94,26,0.05) 0%, #f5f5f7 60%);
+      border: 1px solid rgba(138,94,26,0.15);
+      border-radius: var(--radius);
+      padding: 60px;
+    }
+
+    .inperson-icon { font-size: 64px; margin-bottom: 24px; }
+
+    .inperson-title {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .inperson-desc {
+      font-size: 17px;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .inperson-details {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .inperson-detail {
+      text-align: center;
+    }
+    .inperson-detail-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 6px;
+    }
+    .inperson-detail-val {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .inperson-seasonal {
+      font-size: 13px;
+      color: var(--text3);
+      margin-top: 16px;
+    }
+
+    /* ===================== SHIPPING INFO ===================== */
+    .shipping-section {
+      padding: 80px 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .shipping-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 48px;
+    }
+
+    .shipping-item {
+      background: var(--bg2);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .shipping-icon { font-size: 32px; margin-bottom: 12px; }
+    .shipping-region {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .shipping-date {
+      font-size: 14px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .shipping-note { font-size: 12px; color: var(--text3); }
+
+    /* ===================== CONTACT ===================== */
+    .contact-section {
+      padding: 120px 0;
+      background: var(--bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-label { font-size: 13px; font-weight: 500; color: var(--text2); }
+
+    .form-input, .form-textarea {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 15px;
+      color: var(--text);
+      font-family: inherit;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text3); }
+    .form-textarea { min-height: 140px; resize: vertical; }
+
+    .form-submit {
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 980px;
+      background: var(--gold);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--gold2); transform: scale(1.02); }
+
+    .contact-info-block { padding-top: 16px; }
+    .contact-info-block h2 { margin-bottom: 20px; }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-detail-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .contact-detail-text {}
+    .contact-detail-label { font-size: 12px; color: var(--text3); font-weight: 500; letter-spacing: 0.5px; margin-bottom: 2px; }
+    .contact-detail-val { font-size: 16px; color: var(--text); font-weight: 400; }
+    .contact-detail-val a { color: var(--gold); text-decoration: none; }
+    .contact-detail-val a:hover { text-decoration: underline; }
+
+    .payment-methods {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+    }
+    .payment-title { font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 14px; letter-spacing: 0.5px; }
+    .payment-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .payment-icon {
+      background: var(--bg4);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: var(--text2);
+      font-weight: 500;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 64px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand {}
+    .footer-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline {
+      font-size: 14px;
+      color: var(--text3);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      max-width: 260px;
+    }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg4);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      text-decoration: none;
+      color: var(--text2);
+      transition: all 0.2s;
+    }
+    .social-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .footer-col-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: 0.2px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy { font-size: 12px; color: var(--text3); }
+    .footer-legal { display: flex; gap: 16px; }
+    .footer-legal a { font-size: 12px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--text); }
+
+    /* ===================== NEWSLETTER ===================== */
+    .newsletter-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(138,94,26,0.04) 0%, var(--bg2) 60%);
+      border-top: 1px solid var(--border);
+    }
+    .newsletter-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .newsletter-inner h2 { font-size: 36px; margin-bottom: 12px; }
+    .newsletter-inner p { font-size: 16px; color: var(--text2); margin-bottom: 32px; }
+    .newsletter-form { display: flex; gap: 12px; }
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: 980px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input:focus { border-color: var(--gold); }
+    .newsletter-input::placeholder { color: var(--text3); }
+    .newsletter-btn {
+      padding: 14px 28px;
+      border-radius: 980px;
+      background: var(--gold);
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .newsletter-btn:hover { background: var(--gold2); }
+
+    /* ===================== PRODUCT IMAGES ===================== */
+    .product-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      transition: transform 0.3s var(--ease);
+    }
+    .product-card:hover .product-img { transform: scale(1.08) rotate(4deg); }
+
+    .story-logo-img {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.7));
+      border-radius: 16px;
+    }
+
+    /* ===================== SCROLL REVEAL ===================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===================== TOAST ===================== */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--bg3);
+      border: 1px solid rgba(200,169,110,0.3);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 24px;
+      border-radius: 980px;
+      z-index: 9999;
+      transition: transform 0.4s var(--ease);
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-visual { height: 280px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .ideas-layout { grid-template-columns: 1fr; }
+      .idea-card.featured { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .shipping-grid { grid-template-columns: repeat(2, 1fr); }
+      .pairings-grid { grid-template-columns: 1fr; }
+      .home-hero-grid { grid-template-columns: 1fr !important; }
+      .home-collections-grid { grid-template-columns: 1fr !important; }
+    }
+
+    @media (max-width: 560px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .newsletter-form { flex-direction: column; }
+      .inperson-card { padding: 40px 24px; }
+      .story-facts { grid-template-columns: 1fr; }
+      .shipping-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#" style="display:flex;align-items:center;gap:10px">
+    <img src="https://www.shortbread.ca/cdn/shop/files/CHB_Signature2_300x300.jpg?v=1614372364" alt="Coach House Shortbread" style="width:32px;height:32px;object-fit:contain;border-radius:6px" />
+    Coach House <span>Shortbread</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#ideas">Ideas</a></li>
+    <li><a href="#wine-pairings">Wine Pairings</a></li>
+    <li><a href="#did-you-know">Did You Know</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="nav-btn" href="#shop">Shop Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#story" onclick="closeMobile()">Our Story</a>
+  <a href="#shop" onclick="closeMobile()">Shop</a>
+  <a href="#ideas" onclick="closeMobile()">Ideas & Recipes</a>
+  <a href="#wine-pairings" onclick="closeMobile()">Wine Pairings</a>
+  <a href="#did-you-know" onclick="closeMobile()">Did You Know</a>
+  <a href="#inperson" onclick="closeMobile()">In Person</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HOME SECTION -->
+<section id="home" style="padding-top:var(--nav-h);background:var(--bg)">
+
+  <!-- Announcement Banner -->
+  <div style="background:#6b2020;color:#fff;text-align:center;padding:10px 24px;font-size:13px;font-weight:400;line-height:1.5">
+    🏠 &nbsp;In-person orders are by <strong>appointment only</strong> — January through August each year. &nbsp;|&nbsp; 📦 Holiday shipping deadlines apply — <a href="#contact" style="color:#ffd0a0;text-decoration:underline">see details</a>
+  </div>
+
+  <!-- Hero Area -->
+  <div style="max-width:1200px;margin:0 auto;padding:80px 24px 60px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(138,94,26,0.2);padding:6px 16px;border-radius:980px;margin-bottom:28px">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block"></span>
+        Canada's Best Since 1986
+      </div>
+      <h1 style="font-size:clamp(42px,6vw,80px);font-weight:700;letter-spacing:-2.5px;line-height:0.95;margin-bottom:24px;color:var(--text)">
+        Canada's Best<br>
+        <span style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 60%,#6a3e08 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Shortbread</span>
+      </h1>
+      <p style="font-size:18px;font-weight:300;color:var(--text2);line-height:1.6;margin-bottom:16px">
+        Handcrafted in Toronto since 1986. Thirteen extraordinary sweet and savoury flavours — made in small batches, fresh to order.
+      </p>
+      <!-- Press Quotes mini -->
+      <div style="border-left:3px solid var(--gold);padding-left:16px;margin:28px 0;font-size:14px;font-style:italic;color:var(--text2);line-height:1.6">
+        "The best shortbread I've ever had in my life — sorry, mom." <span style="font-style:normal;font-weight:600;color:var(--text)">— Toronto Star</span>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#shop" style="font-size:16px;font-weight:500;padding:13px 28px;border-radius:980px;background:var(--gold);color:#fff;text-decoration:none;transition:background 0.2s">Shop Now</a>
+        <a href="#story" style="font-size:16px;font-weight:400;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:6px;padding:13px 0">Our Story →</a>
+      </div>
+    </div>
+    <!-- Hero images: logo + couple -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+      <img src="https://www.shortbread.ca/cdn/shop/files/CHB_Signature2_1200x.jpg?v=1614372364"
+           alt="Coach House Shortbread"
+           style="width:100%;max-width:380px;height:auto;object-fit:contain;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.1)" />
+      <div style="position:relative;width:100%;max-width:380px;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12)">
+        <img src="couple.png" alt="Coach House Shortbread — with a special guest"
+             style="width:100%;height:auto;display:block;object-fit:cover" />
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(transparent,rgba(0,0,0,0.55));color:#fff;font-size:13px;font-weight:500;letter-spacing:0.2px">
+          A very special shortbread delivery 🎉
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collection Cards -->
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 100px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+
+    <!-- Sweet Flavours Card -->
+    <a href="#shop" onclick="setFilter('sweet')" style="text-decoration:none;display:block;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--bg2);transition:transform 0.3s,box-shadow 0.3s;position:relative" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="height:260px;overflow:hidden;background:#f7f0e6;display:flex;align-items:center;justify-content:center">
+        <img src="https://cdn.shopify.com/s/files/1/0298/0383/9593/files/sweet_480x480.jpg" alt="Sweet Shortbread Collection" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''" />
+      </div>
+      <div style="padding:28px 32px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Collection</div>
+        <div style="font-size:24px;font-weight:700;color:var(--text);letter-spacing:-0.5px;margin-bottom:8px">Sweet Flavours</div>
+        <div style="font-size:15px;color:var(--text2);margin-bottom:20px">Nine luscious sweet varieties — from Lavender to Dark Chocolate.</div>
+        <div style="font-size:14px;font-weight:500;color:var(--gold);display:flex;align-items:center;gap:6px">Browse Sweet →</div>
+      </div>
+    </a>
+
+    <!-- Savoury Flavours Card -->
+    <a href="#shop" onclick="setFilter('savoury')" style="text-decoration:none;display:block;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--bg2);transition:transform 0.3s,box-shadow 0.3s;position:relative" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="height:260px;overflow:hidden;background:#f0f4ee;display:flex;align-items:center;justify-content:center">
+        <img src="https://cdn.shopify.com/s/files/1/0298/0383/9593/files/savoury_480x480.jpg" alt="Savoury Shortbread Collection" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''" />
+      </div>
+      <div style="padding:28px 32px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#287840;margin-bottom:8px">Collection</div>
+        <div style="font-size:24px;font-weight:700;color:var(--text);letter-spacing:-0.5px;margin-bottom:8px">Savoury Flavours</div>
+        <div style="font-size:15px;color:var(--text2);margin-bottom:20px">Four bold savoury varieties — pairing brilliantly with wine and cocktails.</div>
+        <div style="font-size:14px;font-weight:500;color:#287840;display:flex;align-items:center;gap:6px">Browse Savoury →</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ORIGINAL HERO (now acts as "About" teaser below home) -->
+<section class="hero" style="min-height:70vh" id="home-feature">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">Canada's Best Shortbread Since 1986</div>
+  <h1>
+    <span class="line1">Artisan</span>
+    <span class="line2">Shortbread</span>
+  </h1>
+  <p class="hero-sub">
+    Handcrafted with love in Toronto. Thirteen extraordinary flavours — sweet and savoury — made fresh to order.
+  </p>
+  <div class="hero-cta">
+    <a href="#shop" class="btn-primary">Explore Flavours</a>
+    <a href="#story" class="btn-secondary">Our Story</a>
+  </div>
+
+  <!-- Decorative floating cookies -->
+  <div class="hero-cookies" aria-hidden="true">
+    <div class="cookie" style="width:80px;height:80px;background:radial-gradient(circle at 35% 35%,#f0d080,#c8960a 50%,#7a4e00);left:10%;top:20%;animation-duration:6s;animation-delay:0s;opacity:0.7;box-shadow:0 12px 30px rgba(0,0,0,0.5)"></div>
+    <div class="cookie" style="width:60px;height:60px;background:radial-gradient(circle at 35% 35%,#e8c8a0,#c89060 50%,#6a3800);left:25%;top:60%;animation-duration:8s;animation-delay:1s;opacity:0.5;box-shadow:0 8px 20px rgba(0,0,0,0.4)"></div>
+    <div class="cookie" style="width:100px;height:100px;background:radial-gradient(circle at 35% 35%,#f5d890,#d4a030 50%,#8b5e00);left:50%;top:30%;animation-duration:7s;animation-delay:0.5s;opacity:0.8;box-shadow:0 16px 40px rgba(0,0,0,0.6)"></div>
+    <div class="cookie" style="width:70px;height:70px;background:radial-gradient(circle at 35% 35%,#e8b880,#b87030 50%,#5c3000);left:72%;top:55%;animation-duration:9s;animation-delay:2s;opacity:0.6;box-shadow:0 10px 25px rgba(0,0,0,0.4)"></div>
+    <div class="cookie" style="width:50px;height:50px;background:radial-gradient(circle at 35% 35%,#f0d888,#c89020 50%,#704800);left:85%;top:20%;animation-duration:5s;animation-delay:1.5s;opacity:0.5;box-shadow:0 6px 15px rgba(0,0,0,0.35)"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item">Almond & Sugared Rose</span>
+    <span class="marquee-item">Cheddar & Chipotle</span>
+    <span class="marquee-item">Cranberry</span>
+    <span class="marquee-item">Dark Chocolate & Fleur de Sel</span>
+    <span class="marquee-item">Ginger</span>
+    <span class="marquee-item">Gorgonzola & Pistachio</span>
+    <span class="marquee-item">Lavender</span>
+    <span class="marquee-item">Lemon</span>
+    <span class="marquee-item">Orange & Cardamom</span>
+    <span class="marquee-item">Original</span>
+    <span class="marquee-item">Pecan</span>
+    <span class="marquee-item">Spicy Asiago & Garlic</span>
+    <span class="marquee-item">Stilton & Rosemary</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">Almond & Sugared Rose</span>
+    <span class="marquee-item">Cheddar & Chipotle</span>
+    <span class="marquee-item">Cranberry</span>
+    <span class="marquee-item">Dark Chocolate & Fleur de Sel</span>
+    <span class="marquee-item">Ginger</span>
+    <span class="marquee-item">Gorgonzola & Pistachio</span>
+    <span class="marquee-item">Lavender</span>
+    <span class="marquee-item">Lemon</span>
+    <span class="marquee-item">Orange & Cardamom</span>
+    <span class="marquee-item">Original</span>
+    <span class="marquee-item">Pecan</span>
+    <span class="marquee-item">Spicy Asiago & Garlic</span>
+    <span class="marquee-item">Stilton & Rosemary</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal">
+    <div class="stat-number" data-count="1986">1986</div>
+    <div class="stat-label">Established</div>
+  </div>
+  <div class="stat reveal reveal-delay-1">
+    <div class="stat-number" data-count="13">13</div>
+    <div class="stat-label">Unique Flavours</div>
+  </div>
+  <div class="stat reveal reveal-delay-2">
+    <div class="stat-number">40<span style="font-size:0.5em;-webkit-text-fill-color:var(--gold)">+</span></div>
+    <div class="stat-label">Years of Craft</div>
+  </div>
+  <div class="stat reveal reveal-delay-3">
+    <div class="stat-number" style="font-size:clamp(28px,3vw,44px);letter-spacing:-1px">🍁 CA</div>
+    <div class="stat-label">Canada-Wide Shipping</div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-visual reveal">
+        <div class="story-visual-inner">
+          <img src="https://www.shortbread.ca/cdn/shop/files/CHB_Signature2_1200x.jpg?v=1614372364" alt="Coach House Shortbread Logo" class="story-logo-img" />
+        </div>
+        <div class="story-year-badge">
+          <div class="yr">1986</div>
+          <div class="yl">FOUNDED</div>
+        </div>
+      </div>
+
+      <div class="story-content reveal reveal-delay-2">
+        <span class="section-eyebrow">Our Story</span>
+        <h2 class="section-title">Four Decades of Shortbread Perfection</h2>
+        <p>
+          What began in 1986 as a passion project in a Toronto coach house has grown into Canada's most celebrated artisan shortbread. Every batch is still made by hand, in small quantities, using time-honoured Scottish recipes elevated with unexpected flavour combinations.
+        </p>
+        <p>
+          We believe shortbread deserves to be more than a holiday treat. Our sweet and savoury range proves that these buttery, crumbly biscuits can be a year-round indulgence — at the dinner table, at cocktail hour, or straight from the tin.
+        </p>
+
+        <div class="story-facts">
+          <div class="story-fact">
+            <div class="story-fact-icon">🏠</div>
+            <div class="story-fact-title">Toronto Made</div>
+            <div class="story-fact-desc">Crafted at 246 Boulton Ave in the heart of Toronto's East End</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-icon">🌿</div>
+            <div class="story-fact-title">Small Batch</div>
+            <div class="story-fact-desc">Every tin is made fresh to order, never mass-produced</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-icon">🎁</div>
+            <div class="story-fact-title">Perfect Gifting</div>
+            <div class="story-fact-desc">The gift that never disappoints — for any occasion</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-icon">🚚</div>
+            <div class="story-fact-title">Nationwide Delivery</div>
+            <div class="story-fact-desc">FedEx shipping across Canada — arrives fresh</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="shop">
+  <div class="section-inner">
+    <div class="products-header">
+      <span class="section-eyebrow reveal">13 Handcrafted Flavours</span>
+      <h2 class="section-title reveal reveal-delay-1">Choose Your<br>Favourite</h2>
+      <p class="section-desc reveal reveal-delay-2">
+        Two collections — Sweet and Savoury — each designed to surprise and delight. Every flavour is $16 CAD per tin.
+      </p>
+      <div class="filter-tabs reveal reveal-delay-3">
+        <button class="filter-tab active" data-filter="all">All Flavours</button>
+        <button class="filter-tab" data-filter="sweet">Sweet</button>
+        <button class="filter-tab" data-filter="savoury">Savoury</button>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+
+      <!-- Sweet -->
+      <div class="product-card reveal" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/rose_d860b42b-e0af-4830-8f44-3ec45001f24b_500x500.jpg?v=1590101447" alt="Almond & Sugared Rose Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Almond & Sugared Rose</div>
+          <div class="product-desc">Delicate almond notes with a whisper of floral rose — romance in every bite.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Almond &amp; Sugared Rose')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-1" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/Individualcookieshots005_1_500x500.jpg?v=1590097076" alt="Cranberry Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Cranberry Shortbread</div>
+          <div class="product-desc">Bright cranberry tang balanced against rich, buttery Scottish shortbread.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Cranberry Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-2" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/chocolate_500x500.jpg?v=1590102997" alt="Dark Chocolate & Fleur de Sel Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Dark Chocolate & Fleur de Sel</div>
+          <div class="product-desc">Bittersweet dark chocolate crowned with hand-harvested sea salt crystals.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Dark Chocolate &amp; Fleur de Sel')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/gingerart_500x500.jpg?v=1590335506" alt="Ginger Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Ginger Shortbread</div>
+          <div class="product-desc">Warming ground ginger woven into each crumbly, golden layer.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Ginger Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-1" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/lavender_500x500.jpg?v=1590103354" alt="Lavender Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Lavender Shortbread</div>
+          <div class="product-desc">Provençal lavender infused into delicate shortbread — elegantly floral.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Lavender Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-2" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/lemon_500x500.jpg?v=1590103558" alt="Lemon Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Lemon Shortbread</div>
+          <div class="product-desc">Zesty lemon zest brightens classic shortbread with a citrus kiss.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Lemon Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/orange_500x500.jpg?v=1590158017" alt="Orange & Cardamom Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Orange & Cardamom</div>
+          <div class="product-desc">Bright citrus orange with warm, aromatic cardamom spice.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Orange &amp; Cardamom Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-1" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/original_500x500.jpg?v=1590158300" alt="Original Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Original Shortbread</div>
+          <div class="product-desc">The classic — pure, unadulterated Scottish shortbread at its finest.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Original Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-2" data-category="sweet">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-sweet">Sweet</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/pecan_500x500.jpg?v=1590158332" alt="Pecan Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Pecan Shortbread</div>
+          <div class="product-desc">Toasted Southern pecans folded into golden, buttery shortbread.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Pecan Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Savoury -->
+      <div class="product-card reveal" data-category="savoury">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-savoury">Savoury</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/cheddar_500x500.jpg?v=1590102810" alt="Cheddar & Chipotle Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Cheddar & Chipotle</div>
+          <div class="product-desc">Sharp aged cheddar meets smoky chipotle heat. Pairs brilliantly with chili.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Cheddar &amp; Chipotle Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-1" data-category="savoury">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-savoury">Savoury</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/gorgonzola_500x500.jpg?v=1590103262" alt="Gorgonzola & Pistachio Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Gorgonzola & Pistachio</div>
+          <div class="product-desc">Funky blue cheese meets earthy pistachio — perfect with dry martinis.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Gorgonzola &amp; Pistachio Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-delay-2" data-category="savoury">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-savoury">Savoury</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/asiago_500x500.jpg?v=1590158415" alt="Spicy Asiago & Garlic Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Spicy Asiago & Garlic</div>
+          <div class="product-desc">Nutty Asiago with roasted garlic and a slow-building spice. Crumble over salads.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Spicy Asiago &amp; Garlic Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="savoury">
+        <div class="product-visual" style="background:#f7f0e6">
+          <span class="product-badge badge-savoury">Savoury</span>
+          <img src="https://www.shortbread.ca/cdn/shop/products/stilton_500x500.jpg?v=1590158540" alt="Stilton & Rosemary Shortbread" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Stilton & Rosemary</div>
+          <div class="product-desc">Bold British Stilton with fragrant rosemary — sublime with ales and stouts.</div>
+          <div class="product-footer">
+            <div class="product-price">$16.00 <span>CAD</span></div>
+            <button class="product-add" onclick="addToCart('Stilton &amp; Rosemary Shortbread')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRESS / TESTIMONIALS -->
+<section class="press-section" id="press">
+  <div class="section-inner">
+    <div class="press-header">
+      <span class="section-eyebrow reveal">As Featured In</span>
+      <h2 class="section-title reveal reveal-delay-1">What the<br>Press is Saying</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">"The best shortbread I've ever had in my life — sorry, mom."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">V</div>
+          <div>
+            <div class="testimonial-name">Vicky Sanderson</div>
+            <div class="testimonial-pub">Toronto Star</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">"A strong contender for the title of Canada's Shortbread King."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">N</div>
+          <div>
+            <div class="testimonial-name">Nathalie Atkinson</div>
+            <div class="testimonial-pub">National Post</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">"Crisp on the outside with a meltingly tender heart — perfection."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">C</div>
+          <div>
+            <div class="testimonial-name">Cynthia David</div>
+            <div class="testimonial-pub">Food & Drink Magazine</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEAS & RECIPES -->
+<section class="ideas-section" id="ideas">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Serving Ideas</span>
+    <h2 class="section-title reveal reveal-delay-1">Beyond the Tin</h2>
+    <p class="section-desc reveal reveal-delay-2">
+      Our shortbreads are more versatile than you'd imagine. Here are some of our favourite ways to serve them.
+    </p>
+
+    <div class="ideas-layout">
+      <div class="idea-card featured reveal">
+        <div class="idea-visual" style="background:#e8ede8;overflow:hidden;padding:0">
+          <img src="https://cdn.shopify.com/s/files/1/0298/0383/9593/files/salmon_hd_480x480.jpg?v=1590096863" alt="Smoked Salmon Canapés on Shortbread" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+        <div class="idea-body">
+          <span class="idea-tag">Featured Recipe</span>
+          <div class="idea-title">Smoked Trout Canapés</div>
+          <div class="idea-desc">
+            Use Gorgonzola & Pistachio shortbread as the base. Combine cream cheese, sour cream, and flaked smoked trout, then pipe onto biscuits and garnish with fresh dill or pea sprouts. A showstopping party appetizer.
+          </div>
+          <div class="idea-ingredients">
+            <span class="ingredient-tag">Gorgonzola & Pistachio</span>
+            <span class="ingredient-tag">Cream cheese</span>
+            <span class="ingredient-tag">Smoked trout</span>
+            <span class="ingredient-tag">Fresh dill</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="idea-card reveal reveal-delay-1">
+        <div class="idea-visual" style="background:#e8eef8;overflow:hidden;padding:0">
+          <img src="https://cdn.shopify.com/s/files/1/0298/0383/9593/files/Gin-Martini-with-a-twist-e1482411937240_480x480.jpg?v=1590334302" alt="Gin Martini" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+        <div class="idea-body">
+          <span class="idea-tag">Recipe</span>
+          <div class="idea-title">Lox & Crème Fraîche</div>
+          <div class="idea-desc">
+            Top Stilton & Rosemary shortbread with crème fraîche, thin smoked salmon strips, and briny capers.
+          </div>
+          <div class="idea-ingredients">
+            <span class="ingredient-tag">Stilton & Rosemary</span>
+            <span class="ingredient-tag">Crème fraîche</span>
+            <span class="ingredient-tag">Smoked salmon</span>
+            <span class="ingredient-tag">Capers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="idea-card reveal reveal-delay-2">
+        <div class="idea-visual" style="background:#f8eee0;overflow:hidden;padding:0">
+          <img src="https://cdn.shopify.com/s/files/1/0298/0383/9593/files/port_hd_480x480.jpg?v=1590096851" alt="Port Wine Jelly Canapés" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+        <div class="idea-body">
+          <span class="idea-tag">Pairing</span>
+          <div class="idea-title">Wine Jelly Canapés</div>
+          <div class="idea-desc">
+            Spicy Asiago & Garlic with Ice Wine Jelly, or Dark Chocolate & Fleur de Sel with Port Wine Jelly. Sweet-savoury perfection.
+          </div>
+          <div class="idea-ingredients">
+            <span class="ingredient-tag">Spicy Asiago & Garlic</span>
+            <span class="ingredient-tag">Ice Wine Jelly</span>
+            <span class="ingredient-tag">Port Wine Jelly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Pairings -->
+    <div style="margin-top:64px">
+      <span class="section-eyebrow reveal" style="text-align:left">Quick Pairings</span>
+      <h3 class="reveal reveal-delay-1" style="font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-0.5px;margin-bottom:8px;color:var(--text)">More Ways to Enjoy</h3>
+      <div class="pairings-grid reveal reveal-delay-2">
+        <div class="pairing-card">
+          <span class="pairing-icon">🌶️</span>
+          <div>
+            <div class="pairing-name">Cheddar & Chipotle</div>
+            <div class="pairing-with">Pairs with: homemade chili, pulled pork</div>
+          </div>
+        </div>
+        <div class="pairing-card">
+          <span class="pairing-icon">🥗</span>
+          <div>
+            <div class="pairing-name">Spicy Asiago & Garlic</div>
+            <div class="pairing-with">Crumbled over Caesar or arugula salads</div>
+          </div>
+        </div>
+        <div class="pairing-card">
+          <span class="pairing-icon">🍺</span>
+          <div>
+            <div class="pairing-name">Stilton & Rosemary</div>
+            <div class="pairing-with">Pairs with: ales, stouts, robust red wines</div>
+          </div>
+        </div>
+        <div class="pairing-card">
+          <span class="pairing-icon">🍸</span>
+          <div>
+            <div class="pairing-name">Gorgonzola & Pistachio</div>
+            <div class="pairing-with">As a martini accompaniment — replace the olive</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHIPPING INFO -->
+<section class="shipping-section">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="section-eyebrow reveal">Delivery Info</span>
+      <h2 class="section-title reveal reveal-delay-1" style="text-align:center">We Ship Across Canada</h2>
+      <p class="section-desc reveal reveal-delay-2" style="margin:16px auto 0;text-align:center">
+        Via FedEx. Order early for the holidays — guaranteed delivery timelines apply.
+      </p>
+    </div>
+    <div class="shipping-grid reveal">
+      <div class="shipping-item">
+        <div class="shipping-icon">🏙️</div>
+        <div class="shipping-region">Toronto</div>
+        <div class="shipping-date">Order by Dec 18</div>
+        <div class="shipping-note">For Christmas delivery</div>
+      </div>
+      <div class="shipping-item">
+        <div class="shipping-icon">🏘️</div>
+        <div class="shipping-region">Ontario (excl. Toronto)</div>
+        <div class="shipping-date">Order by Dec 11</div>
+        <div class="shipping-note">For Christmas delivery</div>
+      </div>
+      <div class="shipping-item">
+        <div class="shipping-icon">🍁</div>
+        <div class="shipping-region">Canada (excl. Ontario)</div>
+        <div class="shipping-date">Order by Dec 1</div>
+        <div class="shipping-note">For Christmas delivery</div>
+      </div>
+      <div class="shipping-item">
+        <div class="shipping-icon">📦</div>
+        <div class="shipping-region">All Regions</div>
+        <div class="shipping-date">FedEx Delivery</div>
+        <div class="shipping-note">Tracked & insured</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IN PERSON -->
+<section class="inperson-section" id="inperson">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Shop In Person</span>
+    <h2 class="section-title reveal reveal-delay-1">Visit the Coach House</h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin:16px auto 0">
+      Experience the magic firsthand — smell the butter, taste the difference.
+    </p>
+    <div class="inperson-card reveal reveal-delay-3">
+      <div class="inperson-icon">🏠</div>
+      <div class="inperson-title">By Appointment Only</div>
+      <div class="inperson-desc">
+        Our studio is open for in-person orders and pickup from January through August each year.
+        We keep things intimate — please reach out to book your visit.
+      </div>
+      <div class="inperson-details">
+        <div class="inperson-detail">
+          <div class="inperson-detail-label">Address</div>
+          <div class="inperson-detail-val">246 Boulton Ave<br>Toronto, ON M4M 2K1</div>
+        </div>
+        <div class="inperson-detail">
+          <div class="inperson-detail-label">Hours</div>
+          <div class="inperson-detail-val">Weekdays<br>6:00 AM – 3:00 PM</div>
+        </div>
+        <div class="inperson-detail">
+          <div class="inperson-detail-label">Season</div>
+          <div class="inperson-detail-val">January<br>through August</div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary">Book an Appointment</a>
+      <p class="inperson-seasonal">September–December: Online orders only</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <span class="section-eyebrow reveal">Stay in the Loop</span>
+    <h2 class="section-title reveal reveal-delay-1">Join Our Mailing List</h2>
+    <p class="reveal reveal-delay-2">New flavours, seasonal specials, and holiday ordering reminders — no spam, ever.</p>
+    <form class="newsletter-form reveal reveal-delay-3" onsubmit="subscribeNewsletter(event)">
+      <input class="newsletter-input" type="email" placeholder="your@email.com" required />
+      <button class="newsletter-btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- WINE PAIRINGS -->
+<section style="padding:120px 0;background:var(--bg)" id="wine-pairings">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:64px">
+      <span class="section-eyebrow reveal">Expert Recommendations</span>
+      <h2 class="section-title reveal reveal-delay-1">Wine Pairings</h2>
+      <p class="section-desc reveal reveal-delay-2" style="margin:16px auto 0;text-align:center">
+        Curated by sommelier Marlise Ponzo — perfect wines to accompany every flavour.
+      </p>
+    </div>
+
+    <!-- Sommelier intro -->
+    <div class="reveal" style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:48px;max-width:760px;margin-left:auto;margin-right:auto;margin-bottom:48px">
+      <img src="https://4.bp.blogspot.com/_7ShWht81jdE/TQbouxisJ0I/AAAAAAAAAlw/LbknlY73yjI/s400/Marlise-40.jpg" alt="Sommelier Marlise Ponzo" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--border);flex-shrink:0" />
+      <div>
+        <div style="font-size:18px;font-weight:600;color:var(--text);margin-bottom:6px">Marlise Ponzo</div>
+        <div style="font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Sommelier</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.6">Marlise is married to chef Albert Ponzo. Together they relocated to Prince Edward County to establish an inn and dining venue, where she curated these exceptional pairings for Coach House Shortbread.</p>
+      </div>
+    </div>
+
+    <!-- Pairing cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px">
+
+      <div class="reveal" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:box-shadow 0.3s,transform 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div>
+            <div style="font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Shortbread</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.2">Stilton &amp; Rosemary</div>
+          </div>
+          <span style="font-size:28px">🧀</span>
+        </div>
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:12px">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:6px">PRIMARY PAIRING</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">NZ Sauvignon Blanc</div>
+          <div style="font-size:13px;color:var(--text2);line-height:1.5">2011 Astrolabe Province Sauvignon Blanc, Marlborough — pungent gooseberry &amp; fresh grass aromas complement the rosemary beautifully.</div>
+        </div>
+        <div style="font-size:12px;color:var(--text3)">Also pairs with: Spicy Asiago &amp; Garlic · German Riesling · Amarone</div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:box-shadow 0.3s,transform 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div>
+            <div style="font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Shortbread</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.2">Pecan</div>
+          </div>
+          <span style="font-size:28px">🍷</span>
+        </div>
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:12px">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:6px">PRIMARY PAIRING</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">20 Year Old Tawny Port</div>
+          <div style="font-size:13px;color:var(--text2);line-height:1.5">Graham's 20 Year Old Tawny Port — "opulent perfection." Caramelized raisin, bitter walnut &amp; cocoa intertwine with the nutty shortbread.</div>
+        </div>
+        <div style="font-size:12px;color:var(--text3)">Also pairs with: Medium Dry Oloroso Sherry · perfect fireside</div>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:box-shadow 0.3s,transform 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div>
+            <div style="font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Shortbread</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.2">Gorgonzola &amp; Pistachio</div>
+          </div>
+          <span style="font-size:28px">🍇</span>
+        </div>
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:12px">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:6px">PRIMARY PAIRING</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">Australian Shiraz</div>
+          <div style="font-size:13px;color:var(--text2);line-height:1.5">2009 Chapel Hill Shiraz — inky, dark berry preserve with vanilla &amp; spiced rum cake notes. Like fruit compote with tangy blue cheese.</div>
+        </div>
+        <div style="font-size:12px;color:var(--text3)">Also pairs with: Dark Chocolate &amp; Fleur de Sel · Vin Santo</div>
+      </div>
+
+      <div class="reveal" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:box-shadow 0.3s,transform 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div>
+            <div style="font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Shortbread</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.2">Cheddar &amp; Chipotle</div>
+          </div>
+          <span style="font-size:28px">🥂</span>
+        </div>
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:12px">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:6px">PRIMARY PAIRING</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">California Chardonnay</div>
+          <div style="font-size:13px;color:var(--text2);line-height:1.5">Sweet butter &amp; toasty caramelized oak. Creamy lemon custard flavour cuts through the richness and offsets the chipotle's smokiness.</div>
+        </div>
+        <div style="font-size:12px;color:var(--text3)">Also pairs with: Lemon Shortbread · Oaked Canadian Chardonnay</div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:box-shadow 0.3s,transform 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div>
+            <div style="font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Shortbread</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.2">Spicy Asiago &amp; Garlic</div>
+          </div>
+          <span style="font-size:28px">🌹</span>
+        </div>
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:12px">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:6px">PRIMARY PAIRING</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">Ontario Rosé</div>
+          <div style="font-size:13px;color:var(--text2);line-height:1.5">Tawse Sketches of Niagara Rosé — ripe berry fruit with alluring floral undertones. "Savoury goodness meets sweet berry-fruit refresher… MAGIC!"</div>
+        </div>
+        <div style="font-size:12px;color:var(--text3)">Also pairs with: Medium Dry Oloroso Sherry · caramelized garlic</div>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:box-shadow 0.3s,transform 0.3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.08)'" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div>
+            <div style="font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Shortbread</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px;line-height:1.2">Orange &amp; Cardamom<br>· Almond &amp; Sugared Rose</div>
+          </div>
+          <span style="font-size:28px">🍾</span>
+        </div>
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:12px">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:6px">PRIMARY PAIRING</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">Moscato d'Asti</div>
+          <div style="font-size:13px;color:var(--text2);line-height:1.5">Petalo Il Vino dell'Amore Moscato — sweet, lightly sparkling, irresistibly floral. Enjoy with a chilled bottle for a perfect dessert moment.</div>
+        </div>
+        <div style="font-size:12px;color:var(--text3)">Sweet &amp; bubbly — a floral dream pairing</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DID YOU KNOW -->
+<section style="padding:120px 0;background:var(--bg2)" id="did-you-know">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:64px">
+      <span class="section-eyebrow reveal">History &amp; Heritage</span>
+      <h2 class="section-title reveal reveal-delay-1">Did You Know…</h2>
+      <p class="section-desc reveal reveal-delay-2" style="margin:16px auto 0;text-align:center">
+        Shortbread has a rich and fascinating history stretching back centuries. Here's the story behind the biscuit.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px">
+
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px">
+        <div style="font-size:36px;margin-bottom:16px">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">Scottish Origins</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7">Shortbread originated in Scotland. Scotland's cattle-farming tradition naturally led to dairy-heavy cuisine, with butter and cheese flavouring many traditional foods.</p>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px">
+        <div style="font-size:36px;margin-bottom:16px">🍞</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">From Bannock to Biscuit</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7">Shortbread evolved from medieval "biscuit bread" — leftover bread dough dried in low ovens until hardened. "Biscuit" derives from the French for "twice cooked." Yeast gradually gave way to butter, transforming it into shortbread.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px">
+        <div style="font-size:36px;margin-bottom:16px">🛖</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">Made to Last</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7">"Bread would go mouldy on long treks or out with the cattle for months. Shortbread would last — and went very well with stew." Its durability made it an essential companion for Scottish herders.</p>
+      </div>
+
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px">
+        <div style="font-size:36px;margin-bottom:16px">👑</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">Mary, Queen of Scots</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7">Mary, Queen of Scots favoured "Petticoat Tails" — thin, crisp, buttery shortbread flavoured with caraway seeds. The name possibly derives from the French "petites gatelles" (little cakes) or from the distinctive thin wedge shape.</p>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px">
+        <div style="font-size:36px;margin-bottom:16px">🎊</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">Hogmanay &amp; New Year</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7">Scottish Hogmanay celebrations featured shortbread flavoured with almond or candied citrus peel. "The custom of eating shortbread at New Year has its origins in the ancient pagan Yule Cakes which symbolized the sun." Scotland's "first footer" tradition involves offering shortbread to the first guest of the New Year.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px">
+        <div style="font-size:36px;margin-bottom:16px">💍</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">Scottish Wedding Tradition</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7">Shortbread is traditional at Scottish weddings. Historical tradition involved the groom's mother breaking a shortbread over the bride's head — soft loaves indicated approval, hard ones suggested disapproval!</p>
+      </div>
+
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:32px">
+        <div style="font-size:36px;margin-bottom:16px">🔵</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">Three Classic Shapes</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7">Traditional shortbread takes three forms: one large circle divided into segments ("Petticoat Tails"), individual round biscuits ("Shortbread Rounds"), or a thick rectangular slab cut into "fingers."</p>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="background:linear-gradient(135deg,rgba(138,94,26,0.06),var(--bg));border:1px solid rgba(138,94,26,0.15);border-radius:var(--radius);padding:32px;grid-column:span 2">
+        <div style="font-size:36px;margin-bottom:16px">🌍</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-0.3px">A Global Tradition</div>
+        <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:20px">While Scottish in origin, similar butter-based confections appear worldwide — all sharing the basic ingredients, distinctive texture, and appealing flavour.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <span style="background:var(--bg2);border:1px solid var(--border);border-radius:980px;padding:5px 14px;font-size:13px;color:var(--text2)">🇨🇦 Quebec — Sablés &amp; Biscuits d'Érable</span>
+          <span style="background:var(--bg2);border:1px solid var(--border);border-radius:980px;padding:5px 14px;font-size:13px;color:var(--text2)">🇮🇹 Italy — Frollini</span>
+          <span style="background:var(--bg2);border:1px solid var(--border);border-radius:980px;padding:5px 14px;font-size:13px;color:var(--text2)">🇪🇸 Spain — Polvorones</span>
+          <span style="background:var(--bg2);border:1px solid var(--border);border-radius:980px;padding:5px 14px;font-size:13px;color:var(--text2)">🇫🇷 France — Palets Bretons</span>
+          <span style="background:var(--bg2);border:1px solid var(--border);border-radius:980px;padding:5px 14px;font-size:13px;color:var(--text2)">🇨🇳 China — Mooncakes</span>
+          <span style="background:var(--bg2);border:1px solid var(--border);border-radius:980px;padding:5px 14px;font-size:13px;color:var(--text2)">🇨🇱 Chile — Alfajor</span>
+          <span style="background:var(--bg2);border:1px solid var(--border);border-radius:980px;padding:5px 14px;font-size:13px;color:var(--text2)">🇮🇳 India — Naan Khatai</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <span class="section-eyebrow reveal">Get in Touch</span>
+        <h2 class="section-title reveal reveal-delay-1">We'd Love to<br>Hear from You</h2>
+        <p class="section-desc reveal reveal-delay-2" style="margin-top:16px">
+          Questions about ordering, gifting, wholesale, or appointments? Drop us a message.
+        </p>
+
+        <div class="contact-form reveal reveal-delay-3">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" type="text" placeholder="Jane Smith" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input class="form-input" type="email" placeholder="jane@example.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input class="form-input" type="text" placeholder="Order inquiry..." />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="To place an order, please use the 'Shop Now' button above. For all other questions, write us here..."></textarea>
+          </div>
+          <button class="form-submit" onclick="sendMessage(event)">Send Message</button>
+        </div>
+      </div>
+
+      <div class="contact-info-block reveal reveal-delay-2">
+        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);margin-bottom:32px">Find Us</h2>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">Address</div>
+              <div class="contact-detail-val">246 Boulton Ave<br>Toronto, ON M4M 2K1</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-val"><a href="tel:4169078356">416-907-8356</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🌐</div>
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">Website</div>
+              <div class="contact-detail-val"><a href="#">shortbread.ca</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">⏰</div>
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">In-Person Hours</div>
+              <div class="contact-detail-val">Weekdays, 6 AM – 3 PM<br>(Jan – Aug, by appointment)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-methods">
+          <div class="payment-title">ACCEPTED PAYMENT METHODS</div>
+          <div class="payment-icons">
+            <span class="payment-icon">Visa</span>
+            <span class="payment-icon">Mastercard</span>
+            <span class="payment-icon">Amex</span>
+            <span class="payment-icon">Apple Pay</span>
+            <span class="payment-icon">Google Pay</span>
+            <span class="payment-icon">PayPal</span>
+            <span class="payment-icon">Shop Pay</span>
+            <span class="payment-icon">Discover</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Coach House <span>Shortbread</span></div>
+        <div class="footer-tagline">Canada's finest artisan shortbread, handcrafted in Toronto since 1986.</div>
+        <div class="footer-social">
+          <a class="social-btn" href="#" aria-label="Facebook" title="Facebook">f</a>
+          <a class="social-btn" href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+          <a class="social-btn" href="#" aria-label="Instagram" title="Instagram">◻</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <div class="footer-links">
+          <a href="#shop">All Flavours</a>
+          <a href="#shop" onclick="setFilter('sweet')">Sweet Collection</a>
+          <a href="#shop" onclick="setFilter('savoury')">Savoury Collection</a>
+          <a href="#inperson">In-Person Pickup</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <div class="footer-links">
+          <a href="#story">Our Story</a>
+          <a href="#ideas">Serving Ideas</a>
+          <a href="#wine-pairings">Wine Pairings</a>
+          <a href="#did-you-know">Did You Know</a>
+          <a href="#press">Press</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Info</div>
+        <div class="footer-links">
+          <a href="#contact">Contact</a>
+          <a href="#">Shipping Info</a>
+          <a href="#">Gift Cards</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Coach House Shortbread Co. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ===== MOBILE NAV =====
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    const spans = hamburger.querySelectorAll('span');
+    if (mobileMenu.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+
+  // ===== SCROLL REVEAL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ===== FILTER TABS =====
+  const tabs = document.querySelectorAll('.filter-tab');
+  const cards = document.querySelectorAll('.product-card');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      setFilter(filter);
+    });
+  });
+
+  function setFilter(filter) {
+    tabs.forEach(t => {
+      t.classList.toggle('active', t.dataset.filter === filter);
+    });
+    cards.forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.classList.remove('hidden');
+        setTimeout(() => { card.classList.add('visible'); }, 50);
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  // ===== TOAST =====
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // ===== ADD TO CART =====
+  function addToCart(name) {
+    showToast('✓  ' + name + ' added to cart');
+  }
+
+  // ===== NEWSLETTER =====
+  function subscribeNewsletter(e) {
+    e.preventDefault();
+    showToast('🎉  Thanks! You\'re on the list.');
+    e.target.reset();
+  }
+
+  // ===== CONTACT FORM =====
+  function sendMessage(e) {
+    e.preventDefault();
+    showToast('✓  Message sent! We\'ll be in touch soon.');
+  }
+
+  // ===== SMOOTH NAV BACKGROUND =====
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(255,255,255,0.96)';
+    } else {
+      nav.style.background = 'rgba(255,255,255,0.82)';
+    }
+  }, { passive: true });
+
+  // ===== PARALLAX HERO COOKIES =====
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const cookies = document.querySelectorAll('.hero-cookies .cookie');
+    cookies.forEach((c, i) => {
+      const speed = 0.05 + (i * 0.02);
+      c.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
