@@ -2,4 +2,8 @@
 
 Website for Coach House Shortbread Co. — Canada's Finest Since 1986.
 
-**[Download index.html](https://raw.githubusercontent.com/Spencerpain/shortbread-website/main/index.html)** — download and open in your browser to view the site.
+To download and view the site locally:
+
+1. Click **[index.html](https://github.com/Spencerpain/shortbread-website/blob/main/index.html)** to open the file
+2. Click the **Download raw file** button (top right, looks like a download icon)
+3. Open the downloaded file in your browser
